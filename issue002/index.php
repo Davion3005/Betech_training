@@ -23,4 +23,5 @@ class testChild extends testParent{
 }
 
 $children = new testChild();
-$children->f2('Hello'); //Hello
+$children->f2('Hello'); //Hello and show warning
+ 
