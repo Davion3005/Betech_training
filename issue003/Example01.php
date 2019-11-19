@@ -1,7 +1,7 @@
 <?php
 
 /*
- * 5 Rectangles (1,10),(2,9),(3,8),(4,7),(5,6)
+ * 5 Rectangles with size (1,10),(2,9),(3,8),(4,7),(5,6)
  * get Max Area Rectangle
  */
 
@@ -78,12 +78,27 @@ class ListRectangle {
         return $result = [$max, $widthMax, $heightMax];
     }
 
+    public function getMaxArea2() {
+        $max = 0;
+        for ($ii = 1; $ii < count($this->rectangle); $ii++) {
+            if ($this->rectangle[$max]->getArea() < $this->rectangle[$ii]->getArea()) {
+                $max = $ii;
+            }
+        }
+        return $max;
+    }
+
 }
 
 $object = new ListRectangle();
 echo 'Max Area:' . $object->getMaxArea()[0] . "<br/>";
 echo 'Largest Rectangle has width :' . $object->getMaxArea()[1] . "<br/>";
 echo 'Largest Rectangle has height :' . $object->getMaxArea()[2] . "<br/>";
+$max = $object->rectangle[$object->getMaxArea2()];
+echo 'Max Area:' . $max->getArea() . "<br/>";
+echo 'Largest Rectangle has width :' . $max->width . "<br/>";
+echo 'Largest Rectangle has height :' . $max->height . "<br/>";
 
-//var_dump($object->getMaxArea());
-//$object->getMaxArea();
+
+
+
